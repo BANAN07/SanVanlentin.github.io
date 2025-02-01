@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .yes {
+            background-color: red;
+            color: white;
+        }
+        .no {
+            background-color: gray;
+            color: white;
+        }
+    </style>
+    <script>
+       let notamano = 18;
+       let sitamano = 18;
+       let Textos = ["¿Segura?", "¿Estás completamente segura?", "Piensa bien...", "No me rompas el corazón 💔", "Animó yo se que quieres","Di que si porfavor"];
+        let Gif = [
+            "c.gif",
+            "d.gif",
+            "e.gif",
+            "f.gif",
+            "g.gif",
+            "i.gif"
+        ];
+       let indice = 0;
+
+        function NO() {
+            if (indice < Textos.length) {
+                document.querySelector('.no').textContent = Textos[indice];
+                document.querySelector('img').src = Gif[indice];
+                indice++;
+            }
+            notamano -= 2;
+            sitamano += 5;
+            document.querySelector('.no').style.fontSize = notamano + 'px';
+            document.querySelector('.yes').style.fontSize = sitamano + 'px';
+            
+
+        }
+        function SI() {
+            document.querySelector('img').src = 'b.gif';
+            document.querySelector('h1').textContent = "¡Sabía que dirías que sí jsjsjs!";
+            document.querySelector('.buttons').remove();
+        }
+    </script>
+</head>
+<body>
+    <img src="a.gif" alt="Imagen romántica">
+    <h1>¿Quieres ser mi San Valentín?</h1>
+    <div class="buttons">
+        <button class="yes" onclick="SI()">Sí</button>
+        <button class="no" onclick="NO()">No</button>
+    </div>
+</body>
+</html>
